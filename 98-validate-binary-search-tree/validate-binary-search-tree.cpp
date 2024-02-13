@@ -20,7 +20,7 @@ public:
        if(v.size()==0) v.push_back(root->val);
        else if(v.size()!=0 and v.back()<root->val){
            v.push_back(root->val);
-           cout<<root->val<<endl;
+           //cout<<root->val<<endl;
        }
        else{
            
