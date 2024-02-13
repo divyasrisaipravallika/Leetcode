@@ -11,24 +11,29 @@
  */
 class Solution {
 public:
-   void Inorder(TreeNode* root,vector<int>&v,vector<int>&a,set<int>&x){
-       if(root==NULL)
+   void Inorder(TreeNode* root,vector<int>&v,int &x){
+       if(root==NULL or x==1)
        {
            return;
        }
-       Inorder(root->left,v,a,x);
-       v.push_back(root->val);
-       a.push_back(root->val);
-       x.insert(root->val);
-       Inorder(root->right,v,a,x);
+       Inorder(root->left,v,x);
+       if(v.size()==0) v.push_back(root->val);
+       else if(v.size()!=0 and v.back()<root->val){
+           v.push_back(root->val);
+           cout<<root->val<<endl;
+       }
+       else{
+           
+           x = 1; 
+         
+       }
+       Inorder(root->right,v,x);
    }
     bool isValidBST(TreeNode* root) {
         vector<int>v;
-        vector<int>a;
-        set<int>x;
-        Inorder(root,v,a,x);
-        sort(v.begin(),v.end());
-        if(x.size()!=v.size()) return 0;
-        return v==a;
+        int x=0;
+        Inorder(root,v,x);
+        if(x==0) return true;
+        return false;
     }
 };
