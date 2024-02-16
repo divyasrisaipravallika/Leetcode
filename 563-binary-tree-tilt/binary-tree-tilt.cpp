@@ -22,8 +22,6 @@ public:
         int x = backtrack(root->left,sum);
         int y = backtrack(root->right,sum);
         sum+=abs(x-y);
-        // root->val=abs(root->val-(x+y));
-        cout<<root->val<<" "<<sum<<endl;
         return x+y+root->val;
     }
     int findTilt(TreeNode* root) {
