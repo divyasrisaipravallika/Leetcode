@@ -14,16 +14,16 @@ public:
               q.push(d);
               if(b>=0) c++;
               else if(b<0 and l>0){
-
                   b+=q.top();
                   q.pop();
                   l-=1;
+                  c++;
               }  
               else if(b<0 and l<=0){
-                  return i;
+                  return c;
               }
             }
           }
-        return i;
+        return c;
     }
 };
