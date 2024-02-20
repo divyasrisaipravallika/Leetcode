@@ -11,28 +11,20 @@
  */
 class Solution {
 public:
-   vector<vector<int>>m;
-   void recursion(TreeNode* root,vector<int>v){
+   void recursion(TreeNode* root,int k , int &sum){
        if(root==NULL) return;
        if(root!=NULL and root->left==NULL and root->right==NULL){
-           v.push_back(root->val);
-           m.push_back(v);
+           k = k*10+root->val;
+         sum+=k;
            return;
        }
-       v.push_back(root->val);
-       recursion(root->left,v);
-       recursion(root->right,v);
+       k = k*10+root->val;
+       recursion(root->left,k,sum);
+       recursion(root->right,k,sum);
    }
     int sumNumbers(TreeNode* root) {
-        recursion(root,{});
         int sum = 0;
-        for(int i = 0 ; i < m.size(); i++){
-            int k = 0;
-            for(int j = 0 ; j < m[i].size(); j++){
-                k = k*10+ m[i][j];
-            }
-            sum+=k;
-        }
+        recursion(root,0,sum);
         return sum;
     }
 };
