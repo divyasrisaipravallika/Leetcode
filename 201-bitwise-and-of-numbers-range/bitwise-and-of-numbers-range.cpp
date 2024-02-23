@@ -15,7 +15,7 @@ public:
             }
           }
            if(k==1){
-                 ans+=pow(2,c);
+                 ans|=(1<<c);
              }
              c++;
          }
