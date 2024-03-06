@@ -19,7 +19,6 @@ public:
         int x = backtrack(root->left,c+1);
         int y = backtrack(root->right,c+1);
         v.push_back(x+y);
-        cout<<x<<" "<<y<<endl;
         return max(x,y)+1;
     }
     int diameterOfBinaryTree(TreeNode* root) {
