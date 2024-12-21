@@ -42,19 +42,21 @@ public:
             }
             else if(f==2 and j>=d){
                 v[i][j] = head->val;
-                j--;
                 if(j==d) {
                     f = 3;
                     c++;
+                    i--;
                 }
+                else j--;
             }
             else if(f==3 and i>=c){
                v[i][j] = head->val;
-                i--;
                 if(i==c){
                     f = 0;
                     d++;
+                    j++;
                 }
+                else i--;
             }
             head = head->next;
         }
